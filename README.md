@@ -37,7 +37,7 @@ The problem with node is that you have to manually start your app with `node you
 
 
 
-## Monitoring your node app with Monit
+## Monitor your node app with Monit
 
 node app crashes for any shitty reason like undefined variables. With `monit` you don't have to worry about that, it monitoring your app and if it dies `monit` will restart it for you. Please see the example file `monitrc` to setup your own `monit` script. However don't forget you still have to log for errors and fix them.
 
