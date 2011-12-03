@@ -61,9 +61,19 @@ node app crashes for any shitty reason like undefined variables. With `monit` yo
 
 
 
+## Nginx or not
+
+The reason why we put a nginx server in front while we can use node to get all the request directly is that nginx runs faster with serving static files(css, js, img) and also it is more stable. We can easily use it as a reverse proxy to load balance with multiple nodes.
+
+> Check out the example code - `nginx/nginx.conf` and `vhost.conf`
+
+
+
 ## Deploy your node app
 
 Deploying node app manually can be a pain in the ass. Therefore I wrote this simple bash script to do the job for me. Basically what it does is to pull your project from github, remove or switch config files from dev mode to production mode, stop services, remove lock file, adding tail to current app and switch it with the one that just pull down form github then restart the app.
+
+> Check out the example code - `deploy.sh`
 
 
 
