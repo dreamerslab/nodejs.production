@@ -61,6 +61,33 @@ node app crashes for any shitty reason like undefined variables. With `monit` yo
 
 
 
-## Deploy your node.js app
+## Deploy your node app
 
 Deploying node app manually can be a pain in the ass. Therefore I wrote this simple bash script to do the job for me. Basically what it does is to pull your project from github, remove or switch config files from dev mode to production mode, stop services, remove lock file, adding tail to current app and switch it with the one that just pull down form github then restart the app.
+
+
+
+## License
+
+(The MIT License)
+
+Copyright (c) 2011 dreamerslab &lt;ben@dreamerslab.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
