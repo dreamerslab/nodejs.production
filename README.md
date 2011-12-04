@@ -77,6 +77,31 @@ Deploying node app manually can be a pain in the ass. Therefore I wrote this sim
 
 
 
+## Increase the open file limit
+
+    $ sudo vi /etc/security/limits.conf
+
+> add the following 4 lines
+
+    root soft nofile 51200
+    root hard nofile 51200
+    * soft nofile 51200
+    * hard nofile 51200
+
+    $ sudo vi /etc/pam.d/common-session
+
+> add
+
+    session required pam_limits.so
+
+    $ sudo vi /etc/profile
+
+> add
+
+    ulimit -SHn 51200
+
+
+
 ## License
 
 (The MIT License)
