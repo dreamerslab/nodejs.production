@@ -39,7 +39,7 @@ The problem with node is that you have to manually start your app with `node you
 
 ## Monitor your node app with Monit
 
-node app crashes for any shitty reason like undefined variables. With `monit` you don't have to worry about that, it monitoring your app and if it dies `monit` will restart it for you. Please see the example file `monitrc` to setup your own `monit` script. However don't forget you still have to log for errors and fix them.
+node app crashes for any shitty reason like undefined variables. With `monit` you don't have to worry about that, it monitors your app and if it dies `monit` will restart it for you. Please see the example file `monitrc` to setup your own `monit` script. However don't forget you still have to log for errors and fix them.
 
 ### Installation on Ubuntu
 
@@ -63,7 +63,7 @@ node app crashes for any shitty reason like undefined variables. With `monit` yo
 
 ## Nginx or not
 
-The reason why we put a nginx server in front while we can use node to get all the request directly is that nginx runs faster with serving static files(css, js, img) and also it is more stable. We can easily use it as a reverse proxy to load balance with multiple nodes.
+The reason why we put a nginx server in front while we can use node to get all the request directly is that nginx runs faster with serving static files(css, js, img) and also it is more stable. We can easily use it as a reverse proxy to load balance across multiple node instances.
 
 > Check out the example code - `nginx/nginx.conf` and `vhost.conf`
 
@@ -71,7 +71,7 @@ The reason why we put a nginx server in front while we can use node to get all t
 
 ## Deploy your node app
 
-Deploying node app manually can be a pain in the ass. Therefore I wrote this simple bash script to do the job for me. Basically what it does is to pull your project from github, remove or switch config files from dev mode to production mode, stop services, remove lock file, adding tail to current app and switch it with the one that just pull down form github then restart the app.
+Deploying a node app manually can be a pain in the ass. Therefore I wrote this simple bash script to do the job for me. Basically what it does is to pull your project from github, remove or switch config files from dev mode to production mode, stop services, remove lock file, adding tail to current app and switch it with the one that just pull down form github then restart the app.
 
 > Check out the example code - `deploy.sh`
 
@@ -99,6 +99,11 @@ Deploying node app manually can be a pain in the ass. Therefore I wrote this sim
 > add
 
     ulimit -SHn 51200
+
+
+## Contribute
+
+It took me a lot of time finding how to do all these, hope these samples help. If you find something wrong or you have better solutions, you are welcome to send pull requests :)
 
 
 
