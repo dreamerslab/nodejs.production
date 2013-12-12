@@ -1,6 +1,28 @@
 # node.js on production
 
-Running a node app is easy, however to bring it onto the production level isn't. The followings are the tools and steps I use to run my node apps on an ubuntu server on linode.
+Running a node app is easy, however to bring it onto the production level isn't. The followings are the tools and steps I use to run my node apps on an Ubuntu server on linode.
+
+
+
+## Create user for node.js app
+
+    # sudo adduser <username>
+    $ sudo adduser nodejs --home /home/nodejs --shell /bin/bash
+    # password: your_password
+    # fullname: nodejs
+
+
+
+## Increase the open file limit
+
+    # only `nodejs` and nginx user can open more files
+    $ sudo su
+    $ echo "nodejs soft nofile 51200" >> /etc/security/limits.conf
+    $ echo "nodejs hard nofile 51200" >> /etc/security/limits.conf
+    $ echo "www-data hard nofile 51200" >> /etc/security/limits.conf
+    $ echo "www-data hard nofile 51200" >> /etc/security/limits.conf
+    $ echo "session required pam_limits.so" >> /etc/pam.d/common-session
+    $ exit
 
 
 
@@ -75,30 +97,6 @@ Deploying a node app manually can be a pain in the ass. Therefore I wrote this s
 
 > Check out the example code - `deploy.sh`
 
-
-
-## Increase the open file limit
-
-    $ sudo vi /etc/security/limits.conf
-
-> add the following 4 lines
-
-    root soft nofile 51200
-    root hard nofile 51200
-    * soft nofile 51200
-    * hard nofile 51200
-
-    $ sudo vi /etc/pam.d/common-session
-
-> add
-
-    session required pam_limits.so
-
-    $ sudo vi /etc/profile
-
-> add
-
-    ulimit -SHn 51200
 
 
 ## Contribute
